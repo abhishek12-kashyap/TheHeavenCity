@@ -33,12 +33,16 @@ const revealNodes = [...document.querySelectorAll('[data-animate]')];
 let activeFilter = 'all';
 let activeSlide = 0;
 
-//const lenis = new Lenis({
-//});
-//lenis.on('scroll', ScrollTrigger.update);
-//gsap.ticker.add(lenis.raf);
-//gsap.ticker.lagSmoothing(0);
-
+const lenis = new Lenis({
+  smoothWheel: true,
+  smoothTouch: true,
+  wheelMultiplier: 1.2,
+  touchMultiplier: 1.5,
+  infinite: false,
+});
+lenis.on('scroll', ScrollTrigger.update);
+gsap.ticker.add(lenis.raf);
+gsap.ticker.lagSmoothing(0);
 function raf(time){ lenis.raf(time); requestAnimationFrame(raf); }
 requestAnimationFrame(raf);
 
