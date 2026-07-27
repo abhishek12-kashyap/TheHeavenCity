@@ -33,7 +33,28 @@ const revealNodes = [...document.querySelectorAll('[data-animate]')];
 let activeFilter = 'all';
 let activeSlide = 0;
 
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', (e) => {
+    const id = anchor.getAttribute('href');
+    if (!id || id === '#') return;
+    const target = document.querySelector(id);
+    if (!target) return;
+    e.preventDefault();
 
+    
+    if (typeof lenis !== 'undefined' && lenis && lenis.scrollTo) {
+      lenis.scrollTo(target, { offset: -90 });
+    } else {
+      window.scrollTo({
+        top: target.offsetTop - 90,
+        behavior: 'smooth'
+      });
+    }
+
+    
+    navLinks?.classList.remove('open');
+  });
+});
 
 function raf(time){ lenis.raf(time); requestAnimationFrame(raf); }
 requestAnimationFrame(raf);
