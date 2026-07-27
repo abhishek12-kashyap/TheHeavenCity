@@ -34,11 +34,15 @@ let activeFilter = 'all';
 let activeSlide = 0;
 
 const lenis = new Lenis({
-  duration: 1.1,
   smoothWheel: true,
-  smoothTouch: false,
-  touchMultiplier: 1.2
+  smoothTouch: true,
+  wheelMultiplier: 1.2,
+  touchMultiplier: 1.5,
+  infinite: false,
 });
+lenis.on('scroll', ScrollTrigger.update);
+gsap.ticker.add(lenis.raf);
+gsap.ticker.lagSmoothing(0);
 function raf(time){ lenis.raf(time); requestAnimationFrame(raf); }
 requestAnimationFrame(raf);
 
