@@ -122,7 +122,21 @@ button,input,select,textarea{font:inherit}
 .about-layout,.legal-layout,.availability-layout,.contact-layout,.map-layout{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
 .about-visual,.map-frame,.contact-map{position:relative;overflow:hidden;border-radius:30px;height: 400px;min-height:400px}
 .about-visual img,.map-frame img,.contact-map img{width:100%;height:100%;object-fit:cover}
-.overlay-badge{position:absolute;left:24px;right:24px;bottom:24px;padding:22px;border-radius:24px;background:rgba(7,17,31,.64);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12)}
+.about-visual {
+  position: relative;
+  overflow: hidden;
+  border-radius: 30px;
+  height: auto;          
+  min-height: auto;      
+}
+
+.about-visual img {
+  width: 100%;
+  height: auto;          
+  display: block;
+}
+.overlay-badge {
+  padding: 22px;border-radius: 24px;background: rgba(7,17,31,.64); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,.12); margin-top: 16px;} 
 .project-toolbar{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:28px}
 .search-inline{flex:1;min-width:260px;position:relative}
 .search-inline input{width:100%;padding:18px 20px 18px 52px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:var(--white)}
